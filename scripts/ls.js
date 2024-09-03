@@ -12,3 +12,8 @@ const getProductById = (id) => {
   const product = productsJson.find((row) => row.id === parseInt(id));
   return product ?? [];
 };
+
+const getCartProducts = ()=>{
+  const cart = JSON.parse(localStorage.getItem("cart"));
+  return cart;
+}

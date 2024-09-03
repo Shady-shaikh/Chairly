@@ -120,7 +120,11 @@
                     <th class="product-remove">Remove</th>
                   </tr>
                 </thead>
-                <tbody></tbody>
+                <tbody>  
+                  <tr>
+                    <td colspan="10">No items</td>
+                  </tr>
+                </tbody>
               </table>
             </div>
           </form>
@@ -171,7 +175,15 @@
                     <span class="text-black">Subtotal</span>
                   </div>
                   <div class="col-md-6 text-right">
-                    <strong class="text-black">$230.00</strong>
+                    <strong class="text-black" id="subtotal">0.00</strong>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-md-6">
+                    <span class="text-black">Tax (18 %)</span>
+                  </div>
+                  <div class="col-md-6 text-right">
+                    <strong class="text-black" id="tax-total">0.00</strong>
                   </div>
                 </div>
                 <div class="row mb-5">
@@ -179,7 +191,7 @@
                     <span class="text-black">Total</span>
                   </div>
                   <div class="col-md-6 text-right">
-                    <strong class="text-black">$230.00</strong>
+                    <strong class="text-black" id="gross-total">0.00</strong>
                   </div>
                 </div>
 
@@ -342,6 +354,7 @@
     <script src="../assets/js/tiny-slider.js"></script>
     <script src="../assets/js/custom.js"></script>
     <script src="../scripts/ls.js"></script>
+    <script src="../data/products.js"></script>
     <script src="../scripts/common.js"></script>
     <script src="../scripts/login_logout_check.js"></script>
     <script src="../scripts/cart.js"></script>

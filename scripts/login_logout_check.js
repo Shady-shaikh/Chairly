@@ -2,9 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const user_id = sessionStorage.getItem("user_id");
   const loginLogoutToggle = document.querySelector(".login_logout");
 
-  const user = getCurrentUserByUserId(user_id);
-
-  if (user) {
+  if (user_id) {
+    const user = getCurrentUserByUserId(user_id);
     document.querySelector("#currUser").textContent = user.fullName;
     loginLogoutToggle.addEventListener("click", (e) => {
       e.preventDefault();

@@ -27,7 +27,13 @@ document.querySelectorAll(".product-item").forEach((product) => {
   product.addEventListener("click", (e) => {
     e.preventDefault();
 
+
     const user_id = sessionStorage.getItem("user_id");
+    if(!user_id){
+      window.location = '../pages/login.html';
+      return;
+    }
+
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     let cartIndex = cart.findIndex(
       (item) =>
