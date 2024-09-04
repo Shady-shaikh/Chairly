@@ -2,6 +2,7 @@ const tableBody = document.querySelector("#cart-table tbody");
 
 let cartItems = getCartProducts();
 const user_id = sessionStorage.getItem("user_id");
+
 if (user_id) {
   cartItems.forEach((item) => {
     const product = getProductById(item.product_id);
@@ -33,6 +34,15 @@ if (user_id) {
         </tr>`;
     tableBody.insertAdjacentHTML("afterbegin", html);
   });
+}
+if(cartItems.length === 0 || !user_id){
+  
+  let html = `
+    <tr>
+      <td colspan="10">No items</td>
+    </tr>
+  `;
+  tableBody.insertAdjacentHTML("afterbegin", html);
 }
 
 const updateCartTotal = () => {

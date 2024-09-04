@@ -1,0 +1,114 @@
+body {
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 120px 1fr;
+    background-color: #000;
+}
+
+.balls {
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 60px 60px;
+
+}
+
+.up,
+.down {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    place-items: center;
+}
+
+.up .ball {
+    animation: wave 2s ease-in-out infinite;
+
+    background-color: #eb3ee5;
+}
+
+.down .ball {
+    animation: reverseWave 2s ease-in-out infinite;
+    background-color: #17e8a8;
+
+}
+
+.ball {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: #000;
+}
+
+.up .ball:nth-child(2) {
+    animation-delay: -0.25s;
+    background-color: #c53ced;
+}
+
+.up .ball:nth-child(3) {
+    animation-delay: -0.5s;
+    background-color: #8f39db;
+}
+
+.up .ball:nth-child(4) {
+    animation-delay: -0.75s;
+    background-color: #7223cb;
+}
+
+.up .ball:nth-child(5) {
+    animation-delay: -1s;
+    background-color: #4427d8;
+}
+
+.down .ball:nth-child(2) {
+    animation-delay: -0.25s;
+    background-color: #1fddc0;
+}
+
+.down .ball:nth-child(3) {
+    animation-delay: -0.5s;
+    background-color: #2fd3d9;
+}
+
+.down .ball:nth-child(4) {
+    animation-delay: -0.75s;
+    background-color: #27b4ea;
+}
+
+.down .ball:nth-child(5) {
+    animation-delay: -1s;
+    background-color: #2887e2;
+}
+
+@keyframes wave {
+
+    0%,
+    100% {
+
+        transform: translateY(100px);
+    }
+
+    50% {
+
+        transform: translateY(-80px);
+    }
+}
+
+@keyframes reverseWave {
+
+    0%,
+    100% {
+        transform: translateY(-100px);
+    }
+
+    50% {
+
+        transform: translateY(80px);
+    }
+}

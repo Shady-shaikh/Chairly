@@ -20,10 +20,7 @@
     />
     <link href="../assets/css/tiny-slider.css" rel="stylesheet" />
     <link href="../assets/css/style.css" rel="stylesheet" />
-    <title>
-      Furni Free Bootstrap 5 Template for Furniture and Interior Design Websites
-      by Untree.co
-    </title>
+    <title>Chairly - Shop</title>
   </head>
 
   <body>
@@ -33,7 +30,7 @@
       arial-label="Furni navigation bar"
     >
       <div class="container">
-        <a class="navbar-brand" href="index.html">Furni<span>.</span></a>
+        <a class="navbar-brand" href="index.html">Chairly<span>.</span></a>
 
         <button
           class="navbar-toggler"
@@ -49,12 +46,10 @@
 
         <div class="collapse navbar-collapse" id="navbarsFurni">
           <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-            <li class="nav-item">
+            <li>
               <a class="nav-link" href="index.html">Home</a>
             </li>
-            <li class="active">
-              <a class="nav-link" href="shop.html">Shop</a>
-            </li>
+            <li class="nav-item active"><a class="nav-link" href="shop.html">Shop</a></li>
             <li><a class="nav-link" href="about.html">About us</a></li>
             <li><a class="nav-link" href="services.html">Services</a></li>
             <li><a class="nav-link" href="blog.html">Blog</a></li>
@@ -63,9 +58,12 @@
 
           <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
             <li>
-              <a class="nav-link" href="#"
-                ><img src="../assets/images/user.svg"
-              /></a>
+              <div class="d-flex">
+                <a class="nav-link login_logout" href="#">
+                  <img src="../assets/images/user.svg" />
+                </a>
+                <span id="currUser" class="mt-2">Guest</span>
+              </div>
             </li>
             <li>
               <a class="nav-link" href="cart.html"
@@ -89,10 +87,7 @@
                 Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet
                 velit. Aliquam vulputate velit imperdiet dolor tempor tristique.
               </p>
-              <p>
-                <a href="" class="btn btn-secondary me-2">Shop Now</a
-                ><a href="#" class="btn btn-white-outline">Explore</a>
-              </p>
+              
             </div>
           </div>
           <div class="col-lg-7">
@@ -257,36 +252,7 @@
         <div class="row">
           <div class="col-lg-8">
             <div class="subscription-form">
-              <h3 class="d-flex align-items-center">
-                <span class="me-1"
-                  ><img
-                    src="../assets/images/envelope-outline.svg"
-                    alt="Image"
-                    class="img-fluid" /></span
-                ><span>Subscribe to Newsletter</span>
-              </h3>
-
-              <form action="#" class="row g-3">
-                <div class="col-auto">
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Enter your name"
-                  />
-                </div>
-                <div class="col-auto">
-                  <input
-                    type="email"
-                    class="form-control"
-                    placeholder="Enter your email"
-                  />
-                </div>
-                <div class="col-auto">
-                  <button class="btn btn-primary">
-                    <span class="fa fa-paper-plane"></span>
-                  </button>
-                </div>
-              </form>
+              
             </div>
           </div>
         </div>
@@ -294,7 +260,7 @@
         <div class="row g-5 mb-5">
           <div class="col-lg-4">
             <div class="mb-4 footer-logo-wrap">
-              <a href="#" class="footer-logo">Furni<span>.</span></a>
+              <a href="#" class="footer-logo">Chairly<span>.</span></a>
             </div>
             <p class="mb-4">
               Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio
@@ -366,10 +332,7 @@
                 <script>
                   document.write(new Date().getFullYear());
                 </script>
-                . All Rights Reserved. &mdash; Designed with love by
-                <a href="https://untree.co">Untree.co</a> Distributed By
-                <a href="https://themewagon.com">ThemeWagon</a>
-                <!-- License information: https://untree.co/license/ -->
+                . All Rights Reserved.
               </p>
             </div>
 
@@ -388,5 +351,7 @@
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/js/tiny-slider.js"></script>
     <script src="../assets/js/custom.js"></script>
+    <script src="../scripts/ls.js"></script>
+    <script src="../scripts/login_logout_check.js"></script>
   </body>
 </html>

@@ -30,22 +30,22 @@
     opacity: 1;
 }
 
-.toast-success {
+.toast.success {
     background-color: #d4edda;
     /* Success background */
 }
 
-.toast-info {
+.toast.info {
     background-color: #d1ecf1;
     /* Info background */
 }
 
-.toast-warning {
+.toast.warning {
     background-color: #fff3cd;
     /* Warning background */
 }
 
-.toast-error {
+.toast.error {
     background-color: #f8d7da;
     /* Error background */
 }
