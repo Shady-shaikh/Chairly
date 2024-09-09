@@ -13,7 +13,10 @@ const getProductById = (id) => {
   return product ?? [];
 };
 
-const getCartProducts = ()=>{
-  const cart = JSON.parse(localStorage.getItem("cart"));
-  return cart;
-}
+const getCartProductsUserWise = (user_id) => {
+  let cart = JSON.parse(localStorage.getItem("cart"));
+  if(cart){
+    cart = cart.filter((item) => item.user_id === user_id)
+  }
+  return cart ?? false;
+};

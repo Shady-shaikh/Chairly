@@ -1,10 +1,10 @@
 const tableBody = document.querySelector("#cart-table tbody");
 
-let cartItems = getCartProducts();
 const user_id = sessionStorage.getItem("user_id");
+const cartItemsForUser = getCartProductsUserWise(user_id);
 
 if (user_id) {
-  cartItems.forEach((item) => {
+  cartItemsForUser.forEach((item) => {
     const product = getProductById(item.product_id);
     let html = `
         <tr data-id = ${item.product_id}>
@@ -29,14 +29,15 @@ if (user_id) {
             </div>
 
         </td>
-        <td class="product-total">₹ ${product.price * item.qty}</td>
+        <td class="product-total">₹ ${(product.price * item.qty).toFixed(
+          2
+        )}</td>
         <td><a href="#" class="btn btn-black btn-sm delete-item">X</a></td>
         </tr>`;
     tableBody.insertAdjacentHTML("afterbegin", html);
   });
 }
-if(cartItems.length === 0 || !user_id){
-  
+if (cartItemsForUser.length === 0 || !user_id) {
   let html = `
     <tr>
       <td colspan="10">No items</td>
@@ -82,7 +83,7 @@ tableBody.addEventListener("click", (e) => {
       getProductById(productId).price;
     qty++;
     qtyInput.value = qty;
-    updateProductQty(productId, qty);
+    updateProductQty(productId, qty, user_id);
     productTotal.textContent = `₹ ${totalAmt.toFixed(2)}`;
   }
 
@@ -94,7 +95,7 @@ tableBody.addEventListener("click", (e) => {
     if (qty > 1) {
       qty--;
       qtyInput.value = qty;
-      updateProductQty(productId, qty);
+      updateProductQty(productId, qty, user_id);
 
       productTotal.textContent = `₹ ${totalAmt.toFixed(2)}`;
     }
@@ -113,25 +114,28 @@ tableBody.addEventListener("click", (e) => {
     e.preventDefault();
     const row = target.closest("tr");
     const productId = row.dataset.id;
-    removeProductFromCart(productId);
+    removeProductFromCart(productId, user_id);
     row.remove();
     updateCartTotal();
   }
 });
 
-function updateProductQty(productId, qty) {
-  const updatedCartItems = cartItems.map((item) => {
-    if (item.product_id === productId) {
-      item.qty = qty;
+function updateProductQty(productId, qty, user_id) {
+  const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+  const updatedCart = cartItems.map((item) => {
+    if (item.product_id === productId && item.user_id === user_id) {
+      return { ...item, qty };
     }
     return item;
   });
-  localStorage.setItem("cart", JSON.stringify(updatedCartItems));
+  localStorage.setItem("cart", JSON.stringify(updatedCart));
 }
 
-function removeProductFromCart(productId) {
-  cartItems = cartItems.filter((item) => item.product_id !== productId);
-  localStorage.setItem("cart", JSON.stringify(cartItems));
-
+function removeProductFromCart(productId, user_id) {
+  const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+  const updatedCart = cartItems.filter(
+    (item) => !(item.product_id === productId && item.user_id === user_id)
+  );
+  localStorage.setItem("cart", JSON.stringify(updatedCart));
   showToast("Item removed from cart", "info");
 }
